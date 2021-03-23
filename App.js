@@ -1,21 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React ,{useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
+/**My own cmponents */
+import HeaderComponent from './components/Header';
+import StartGameComponent from './screens/StartGame'
+
+const App = () => {
+  const [myTitle,setMyTitle]=useState("Homepage")
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <View style={styles.screen}>
+      <HeaderComponent title={myTitle} />
+      <StartGameComponent />
       <StatusBar style="auto" />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  screen:{
+    flex:1
+  }
 });
+
+
+export default App;
